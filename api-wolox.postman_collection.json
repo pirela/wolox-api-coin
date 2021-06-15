@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "1313062a-bb88-445f-8d23-3848511f7ea5",
+		"name": "api-wolox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Update-DB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"Pirela\",\r\n    \"password\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}public/auth/",
+					"host": [
+						"{{URL}}public"
+					],
+					"path": [
+						"auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jose Jesus\",\r\n    \"lastName\": \"Pirela Fuenmayor\",\r\n    \"userName\": \"pirela\",\r\n    \"password\": \"pirela123\",\r\n    \"idMoney\": \"Usd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}public/auth/signup",
+					"host": [
+						"{{URL}}public"
+					],
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"Pirela\",\r\n    \"password\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}public/auth/",
+					"host": [
+						"{{URL}}public"
+					],
+					"path": [
+						"auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Coins",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}api/v1/user-coin/top/asc/2",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"v1",
+						"user-coin",
+						"top",
+						"asc",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create-User-Coin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCoin\": \"2c73144e-e647-43a3-be68-e95b571c1b1b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}api/v1/user-coin/",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"v1",
+						"user-coin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Top-User-Coin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}api/v1/user-coin/top/asc/2",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"v1",
+						"user-coin",
+						"top",
+						"asc",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
