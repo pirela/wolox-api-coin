@@ -9,6 +9,7 @@ const ModelCoin = db.coin;
 const ModelCoinPrice = db.coinPrice;
 const ModelCoinImg = db.coinImg;
 
+//endpoint para la insercicion de monedas a seguir de un usuario
 export const postUserCoin = () => async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -35,7 +36,6 @@ export const postUserCoin = () => async (req, res) => {
         idUser,
       },
     });
-    console.info();
     if (coin) {
       if (userCoinExist) {
         res.status(201).json({ data: "La relacion user y coin ya existe." });
@@ -56,13 +56,20 @@ export const postUserCoin = () => async (req, res) => {
   }
 };
 
+
+/**
+ * parametros:
+ *    asc: si el valor es asc entonces se ordena de manera ascender de lo contrario de manera descendete
+ *    limit: si el valor es superior a 25 lo seteamos a 25 en caso contrario dejamos el valor que nos envian o como minimo 1
+ * @returns top N de monedas del usuario
+ */
 export const getTopUserCoin = () => async (req, res) => {
   try {
     const ASC = req.params.asc === "asc" ? "ASC" : "DESC";
     const limitNumber =
       Number.parseInt(req.params.limit) > 0
         ? Number.parseInt(req.params.limit)
-        : 0;
+        : 1;
     const limit = limitNumber > 25 ? 25 : limitNumber;
 
     const idUser = req.user.id;

@@ -1,15 +1,10 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 
-//import { logger, excludeDef } from "../utils";
-
 import db from "../models";
 
 import updateDBRoutes from "./routes/updateDB";
 import userCoinRoutes from "./routes/userCoin";
-
-//const Sequelize = require("sequelize");
-//const Op = Sequelize.Op;
 
 /**
  * Declaracion de los modelos a utilizar
@@ -17,7 +12,7 @@ import userCoinRoutes from "./routes/userCoin";
 const ModelUser = db.user;
 
 /**
- * Declaracion de las rutas
+ * Declaracion de las rutas privadas
  */
 
 const apiRoutes = express.Router();
@@ -65,7 +60,7 @@ apiRoutes.use("/", async (req, res, next) => {
   }
 });
 
-//apiRoutes.use("/user", userRoutes);
+//apiRoutes.use("/user", userRoutes); en caso de quere hacer el CRUD completo de los usuarios
 apiRoutes.use("/update-db", updateDBRoutes);
 apiRoutes.use("/user-coin", userCoinRoutes);
 

@@ -10,6 +10,8 @@ import {
 
 const userRoutes = express.Router();
 
+//Rutas y validacion de los endpoint
+
 userRoutes.post("/", postUser());
 userRoutes.get("/all/:cantidad", getUserLimit());
 userRoutes.get("/:id", getUserById());

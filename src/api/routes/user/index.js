@@ -1,7 +1,7 @@
 import db from "../../../models";
 
 const Model = db.user;
-
+//endpoint para la creacion de un usuario
 export const postUser = () => async (req, res) => {
   const data = req.body;
   const def = defValues();
@@ -22,13 +22,13 @@ export const postUser = () => async (req, res) => {
   }
 };
 
-
+//endpoint para la consulta de usuarios (retorna de 20 registros) y se utilizar el paramentro cantidad para el offset
 export const getUserLimit = () => async (req, res) => {
   try {
     const cantidad = Number.parseInt(req.params.cantidad);
     let objs = await Model.findAll({
       offset: cantidad,
-      limit: 5,
+      limit: 20,
     });
     if (objs) {
       res.status(200).json({ data: objs });
@@ -41,6 +41,7 @@ export const getUserLimit = () => async (req, res) => {
   }
 };
 
+//endpoint para la consulta de un usuario especifico
 export const getUserById = () => async (req, res) => {
   try {
     const id = req.params.id;
@@ -60,6 +61,7 @@ export const getUserById = () => async (req, res) => {
   }
 };
 
+//endpoint para la modificacion de un usuario especifico
 export const putUser = () => async (req, res) => {
   const data = req.body;
   const values = Object.assign({}, data);
@@ -79,6 +81,7 @@ export const putUser = () => async (req, res) => {
   }
 };
 
+//endpoint para la eliminacion de un usuario especifico
 export const deleteUser = () => async (req, res) => {
   const idUser = req.params.id;
   try {

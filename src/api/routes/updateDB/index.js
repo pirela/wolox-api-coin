@@ -7,6 +7,13 @@ const Model = db.coin;
 const ModelCoinImg = db.coinImg;
 const ModelCoinPrice = db.coinPrice;
 
+/**
+ * Generamos un schedule el cual se ejecuta a cierta hora (8 am) el cual se encargara de eliminar los registros en nuestra DB y actualizarlos con los datos de coingecko.
+ * Debido a que este proceso es muy demorado debido a que coingeck nos limita en las peticiones se recomienda hacer este schedule.
+ *
+ * Nota: Para un mejor nivel de desacoplamiento, hacer esto un microservicio
+ * @returns
+ */
 export const updatedDb = () => async (req, res) => {
   /*
   const data = req.body;

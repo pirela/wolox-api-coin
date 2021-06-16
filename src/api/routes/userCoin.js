@@ -6,6 +6,8 @@ import { check } from "express-validator";
 
 const userCoinRoutes = express.Router();
 
+//Rutas y validacion de los endpoint
+
 userCoinRoutes.post(
   "/",
   [check("idCoin", "idCoin is required").notEmpty()],

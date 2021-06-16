@@ -5,6 +5,7 @@ import authRoutes from "./routes/auth";
 import coinRoutes from "./routes/coin";
 
 const publicRoutes = express.Router();
+//Rutas y validacion de los endpoint publicas
 
 publicRoutes.use("/user", userRoutes);
 publicRoutes.use("/auth", authRoutes);
